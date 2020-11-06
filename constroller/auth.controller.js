@@ -1,4 +1,4 @@
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../model/user.model');
 
@@ -8,7 +8,7 @@ exports.authenticate = (req, res) => {
         if (!user) return res.status(404).send({'message':'No user found.'});
         
         // check if the password is valid
-        // var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+        var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
         if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
     
         // if user is found and password is valid
