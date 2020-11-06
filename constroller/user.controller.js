@@ -1,13 +1,13 @@
 const User = require('../model/user.model');
-const bcrypt = require('bcrypt');
-const salt = bcrypt.genSaltSync(8);
+// const bcrypt = require('bcrypt');
+// const salt = bcrypt.genSaltSync(8);
 
 exports.create = (req, res) => {
-    var pw = bcrypt.hashSync(req.body.password, salt, null)
+    // var pw = bcrypt.hashSync(req.body.password, salt, null)
 
     var user = new User({
         email: req.body.email,
-        password: pw
+        password: req.body.password
     });
 
     user.save()
