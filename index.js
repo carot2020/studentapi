@@ -31,6 +31,8 @@ app.get('/student/:id', Student.findOne);
 app.put('/student', Student.update);
 app.delete('/student', Student.delete);
 
-app.listen(3000, () =>{
+const port = process.env.PORT || 3000;
+
+app.listen(port, () =>{
     console.log('Connect port 3000');
 });
